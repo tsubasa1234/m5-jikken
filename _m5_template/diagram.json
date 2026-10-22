@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": 0 },
+    { "type": "wokwi-ili9341", "id": "lcd", "top": -50, "left": 200 },
+    { "type": "wokwi-pushbutton", "id": "btnA", "top": 280, "left": 200 },
+    { "type": "wokwi-pushbutton", "id": "btnB", "top": 280, "left": 300 },
+    { "type": "wokwi-pushbutton", "id": "btnC", "top": 280, "left": 400 }
+  ],
+  "connections": [
+    ["esp:TX", "$serialMonitor:RX", "", []],
+    ["esp:RX", "$serialMonitor:TX", "", []],
+    ["lcd:VCC", "esp:3V3", "red", []],
+    ["lcd:GND", "esp:GND.1", "black", []],
+    ["lcd:CS", "esp:14", "orange", []],
+    ["lcd:D/C", "esp:27", "purple", []],
+    ["lcd:RST", "esp:33", "gray", []],
+    ["lcd:MOSI", "esp:23", "green", []],
+    ["lcd:SCK", "esp:18", "blue", []],
+    ["lcd:LED", "esp:3V3", "red", []],
+    ["btnA:1.l", "esp:26", "yellow", []],
+    ["btnA:2.l", "esp:GND.2", "black", []],
+    ["btnB:1.l", "esp:25", "yellow", []],
+    ["btnB:2.l", "esp:GND.2", "black", []],
+    ["btnC:1.l", "esp:4", "yellow", []],
+    ["btnC:2.l", "esp:GND.2", "black", []]
+  ]
+}

@@ -1,0 +1,4 @@
+[Wokwi]
+version = 1
+firmware = '.pio/build/hellow_m5/firmware.bin'
+elf = '.pio/build/hellow_m5/firmware.elf'

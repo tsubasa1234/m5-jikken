@@ -1,0 +1,60 @@
+{
+  "version": 1,
+  "author": "linetrace-test",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": 0 },
+    { "type": "wokwi-ili9341", "id": "lcd", "top": -50, "left": 200 },
+
+    { "type": "wokwi-pushbutton", "id": "btnA", "top": 280, "left": 220, "attrs": { "color": "green", "label": "A: Calib" } },
+    { "type": "wokwi-pushbutton", "id": "btnB", "top": 280, "left": 330, "attrs": { "color": "red", "label": "B: Start" } },
+
+    { "type": "wokwi-potentiometer", "id": "s0", "top": 260, "left": -420, "attrs": { "label": "S0 L" } },
+    { "type": "wokwi-potentiometer", "id": "s1", "top": 260, "left": -330, "attrs": { "label": "S1" } },
+    { "type": "wokwi-potentiometer", "id": "s2", "top": 260, "left": -240, "attrs": { "label": "S2 C" } },
+    { "type": "wokwi-potentiometer", "id": "s3", "top": 260, "left": -150, "attrs": { "label": "S3" } },
+    { "type": "wokwi-potentiometer", "id": "s4", "top": 260, "left": -60, "attrs": { "label": "S4 R" } },
+
+    { "type": "wokwi-led", "id": "motL", "top": -80, "left": -120, "attrs": { "color": "blue", "label": "Motor L" } },
+    { "type": "wokwi-led", "id": "motR", "top": -80, "left": -60, "attrs": { "color": "blue", "label": "Motor R" } }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+
+    [ "lcd:VCC", "esp:3V3", "red", [] ],
+    [ "lcd:GND", "esp:GND.1", "black", [] ],
+    [ "lcd:CS", "esp:14", "orange", [] ],
+    [ "lcd:D/C", "esp:27", "purple", [] ],
+    [ "lcd:RST", "esp:17", "gray", [] ],
+    [ "lcd:MOSI", "esp:23", "green", [] ],
+    [ "lcd:SCK", "esp:18", "blue", [] ],
+    [ "lcd:LED", "esp:3V3", "red", [] ],
+
+    [ "btnA:1.l", "esp:26", "yellow", [] ],
+    [ "btnA:2.l", "esp:GND.2", "black", [] ],
+    [ "btnB:1.l", "esp:25", "yellow", [] ],
+    [ "btnB:2.l", "esp:GND.2", "black", [] ],
+
+    [ "s0:SIG", "esp:32", "cyan", [] ],
+    [ "s1:SIG", "esp:33", "cyan", [] ],
+    [ "s2:SIG", "esp:34", "cyan", [] ],
+    [ "s3:SIG", "esp:35", "cyan", [] ],
+    [ "s4:SIG", "esp:VP", "cyan", [] ],
+    [ "s0:VCC", "esp:3V3", "red", [] ],
+    [ "s1:VCC", "esp:3V3", "red", [] ],
+    [ "s2:VCC", "esp:3V3", "red", [] ],
+    [ "s3:VCC", "esp:3V3", "red", [] ],
+    [ "s4:VCC", "esp:3V3", "red", [] ],
+    [ "s0:GND", "esp:GND.1", "black", [] ],
+    [ "s1:GND", "esp:GND.1", "black", [] ],
+    [ "s2:GND", "esp:GND.1", "black", [] ],
+    [ "s3:GND", "esp:GND.1", "black", [] ],
+    [ "s4:GND", "esp:GND.1", "black", [] ],
+
+    [ "motL:A", "esp:16", "blue", [] ],
+    [ "motL:C", "esp:GND.2", "black", [] ],
+    [ "motR:A", "esp:4", "blue", [] ],
+    [ "motR:C", "esp:GND.2", "black", [] ]
+  ]
+}

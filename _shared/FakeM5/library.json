@@ -1,0 +1,8 @@
+{
+  "name": "FakeM5",
+  "version": "1.0.0",
+  "description": "M5Stack-like API on ESP32 + ILI9341 for Wokwi simulation",
+  "frameworks": "arduino",
+  "platforms": "espressif32",
+  "build": { "includeDir": ".", "srcDir": "." }
+}
