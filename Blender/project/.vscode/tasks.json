@@ -1,0 +1,40 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Send to Blender",
+            "type": "process",
+            "command": "python3",
+            "args": [
+                "${workspaceFolder}/tools/send_to_blender.py",
+                "${file}",
+                "${workspaceFolder}"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            // Ctrl+Shift+B (macOS 既定は ⇧⌘B) で実行される既定のビルドタスクにする
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared",
+                "clear": true,
+                "focus": false
+            },
+            // 「ファイル:行: error: メッセージ」をエディタ上のエラー表示 (問題パネル) に変換
+            "problemMatcher": {
+                "owner": "blender",
+                "fileLocation": "absolute",
+                "pattern": {
+                    "regexp": "^(.+\\.py):(\\d+): error: (.*)$",
+                    "file": 1,
+                    "line": 2,
+                    "message": 3
+                }
+            }
+        }
+    ]
+}
